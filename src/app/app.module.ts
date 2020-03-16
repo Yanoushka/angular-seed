@@ -12,6 +12,7 @@ import { AppMaterialModule } from './_modules/shared/app-material/app-material.m
 import { AppErrorPagesModule } from './_modules/shared/app-error-pages/app-error-pages.module';
 import { ApiModule as PetshopApiModule, BASE_PATH} from './_modules/angular-seed/petshop/app-petshop-api';
 import { environment } from 'src/environments/environment';
+import { AppNgrxStoreModule } from './_modules/angular-seed/ngrx-store/app-ngrx-store/app-ngrx-store.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -38,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppPetshopModule,
     AppErrorPagesModule,
     PetshopApiModule
+    AppNgrxStoreModule,
   ],
   providers: [{ provide: BASE_PATH, useValue: environment.API_BASE_PATH }],
   bootstrap: [AppComponent],
