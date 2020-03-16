@@ -1,5 +1,5 @@
 export interface State {
-    petsList: [];
+    petsList: Array<any>;
   }
 
 export const initialState: State = {

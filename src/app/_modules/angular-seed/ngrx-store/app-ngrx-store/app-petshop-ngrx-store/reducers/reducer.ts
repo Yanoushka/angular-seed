@@ -1,12 +1,17 @@
-import { Actions, ActionTypes } from '../actions/action';
-import { initialState, State } from '../states/state';
+import { postPetsList } from '../actions/action';
+import { initialState } from '../states/state';
+import { createReducer, on } from '@ngrx/store';
 
+const _petsReducer = createReducer(
+    initialState,
+    on(postPetsList, (state, petsList) => {
+        const myPetsList = { ...state };
 
-export function featureReducer(state = initialState, action: Actions): State {
-    switch (action.type) {
-        case ActionTypes.POST_PETS_LIST:
-          return {
-            ...state
-          };
-        }
+        return myPetsList;
+    })
+);
+
+// tslint:disable-next-line: only-arrow-functions
+export function petsReducer(state, action) {
+    return _petsReducer(state, action);
 }

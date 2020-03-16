@@ -1,12 +1,10 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 export enum ActionTypes {
-    POST_PETS_LIST = '[Petshop] Post Pets List',
-  }
-
-export class PostPetsListAction implements Action {
-  readonly type = ActionTypes.POST_PETS_LIST;
-  constructor(public payload: []) {}
+  POST_PETS_LIST = '[Petshop] Post Pets List',
 }
 
-export type Actions = PostPetsListAction;
+export const postPetsList = createAction(
+  ActionTypes.POST_PETS_LIST,
+  props<{ petsList: Array<any> }>()
+);
