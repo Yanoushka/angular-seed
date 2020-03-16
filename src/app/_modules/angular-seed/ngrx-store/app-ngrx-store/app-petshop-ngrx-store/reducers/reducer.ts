@@ -4,10 +4,11 @@ import { createReducer, on } from '@ngrx/store';
 
 const _petsReducer = createReducer(
     initialState,
-    on(postPetsList, (state, petsList) => {
-        const myPetsList = { ...state };
+    on(postPetsList, (state, payload) => {
+        const myState = {...state};
+        myState.petsList = [...myState.petsList, ...payload.petsList];
 
-        return myPetsList;
+        return myState;
     })
 );
 
