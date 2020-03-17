@@ -1,0 +1,7 @@
+{
+    "pets": [
+        {"id": 1, "name": "toto"},
+        {"id": 2, "name": "tata"}
+    ]
+}   
+ 

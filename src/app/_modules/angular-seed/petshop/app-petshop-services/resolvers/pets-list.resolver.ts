@@ -11,7 +11,7 @@ export class PetsListResolver implements Resolve<Pet[]> {
 
   resolve(): Observable<Pet[]> {
 
-    // return this.defaultService.findPets();
-    return of([{id: 1, name: 'toto'}, {id: 2, name: 'tata'}]);
+    return this.defaultService.findPets();
+    // return of([{id: 1, name: 'toto'}, {id: 2, name: 'tata'}]);
   }
 }
