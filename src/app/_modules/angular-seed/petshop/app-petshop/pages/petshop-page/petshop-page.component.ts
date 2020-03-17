@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Pet } from '../../../app-petshop-api';
+import { ActivatedRoute } from '@angular/router';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-petshop-page',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetshopPageComponent implements OnInit {
 
-  constructor() { }
+  petsList: Observable<Pet[]>;
+
+  constructor(private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.petsList = this.route.data
+    .pipe(
+      tap(data => console.log(data)),
+      map(data => data.petsList)
+    );
   }
 
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
@@ -9,4 +9,10 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class AppPetshopPrivateServicesModule { }
+export class AppPetshopPrivateServicesModule { 
+  constructor(@Optional() @SkipSelf() appPetshopPrivateServicesModule: AppPetshopPrivateServicesModule) {
+    if (appPetshopPrivateServicesModule) {
+      throw new TypeError(`appPetshopPrivateServicesModule is imported twice.`);
+    }
+  }
+}

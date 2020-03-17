@@ -19,13 +19,13 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.store.dispatch(postPetsList({
-      petsList: [{name: 'shitsu'}, {name: 'caniche'}]
-    }));
+    // this.store.dispatch(postPetsList({
+    //   petsList: [{name: 'shitsu'}, {name: 'caniche'}]
+    // }));
 
-    this.store.pipe(
-      select('petsList')
-    )
-    .subscribe(petsList => console.log(petsList));
+    // this.store.pipe(
+    //   select('petsList')
+    // )
+    // .subscribe(petsList => console.log(petsList));
   }
 }

@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PetsListResolver } from './resolvers/pets-list.resolver';
 
 
 
@@ -7,6 +8,20 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule
-  ]
+  ],
 })
-export class AppPetshopServicesModule { }
+export class AppPetshopServicesModule {
+  constructor(@Optional() @SkipSelf() appPetshopServicesModule: AppPetshopServicesModule) {
+    if (appPetshopServicesModule) {
+      throw new TypeError(`appPetshopServicesModule is imported twice.`);
+    }
+  }
+  static forRoot(): ModuleWithProviders {
+    return {
+        ngModule: AppPetshopServicesModule,
+        providers: [
+          PetsListResolver
+        ]
+    };
+  }
+}

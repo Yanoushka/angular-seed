@@ -1,4 +1,6 @@
 <h2>See all my pets:</h2>
-<div class="pets-container">
-  <app-pet></app-pet>
+<div class="pets-list-container">
+  <div class="pet-container" *ngFor="pet of (petsList | async)">
+    <app-pet></app-pet>
+  </div>
 </div>
