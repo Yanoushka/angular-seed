@@ -31,10 +31,11 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      onSameUrlNavigation: 'reload',
-      useHash: true,
-      preloadingStrategy: PreloadAllModules,
-    }),
+    onSameUrlNavigation: 'reload',
+    useHash: true,
+    preloadingStrategy: PreloadAllModules,
+    initialNavigation: 'enabled'
+}),
   ],
   exports: [RouterModule],
 })
