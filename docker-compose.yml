@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+  angular-seed: 
+    build:
+      context: .
+      dockerfile: ./DockerFile
+    container_name: angular-seed
+    ports:
+      - 8080:80
