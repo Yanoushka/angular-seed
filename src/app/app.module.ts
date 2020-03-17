@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppPetshopModule } from './_modules/angular-seed/petshop/app-petshop/app-petshop.module';
 import { AppMaterialModule } from './_modules/shared/app-material/app-material.module';
 import { AppErrorPagesModule } from './_modules/shared/app-error-pages/app-error-pages.module';
+import { ApiModule as PetshopApiModule, BASE_PATH} from './_modules/angular-seed/petshop/app-petshop-api';
+import { environment } from 'src/environments/environment';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,8 +37,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppMaterialModule,
     AppPetshopModule,
     AppErrorPagesModule,
+    PetshopApiModule
   ],
-  providers: [],
+  providers: [{ provide: BASE_PATH, useValue: environment.API_BASE_PATH }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
