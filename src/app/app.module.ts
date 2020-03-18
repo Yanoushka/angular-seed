@@ -19,6 +19,7 @@ import { AppNgrxStoreModule } from './_modules/angular-seed/ngrx-store/app-ngrx-
 import { AppPetshopServicesModule } from './_modules/angular-seed/petshop/app-petshop-services/app-petshop-services.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppInitService } from './services/app-init.service';
+import { AppLoggerModule } from './_modules/shared/app-logger/app-logger.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,7 +54,8 @@ export function initializeApp(appInitService: AppInitService) {
         AppNgrxStoreModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production
-        })
+        }),
+        AppLoggerModule.forRoot()
     ],
     providers: [
         { provide: BASE_PATH, useValue: environment.API_BASE_PATH },

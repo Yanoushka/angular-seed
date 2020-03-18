@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Store, select } from '@ngrx/store';
-
-import { postPetsList } from './_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
+import { LoggerService } from './_modules/shared/app-logger/services/logger.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = 'angular-seed';
 
-    constructor(translate: TranslateService) {
+    constructor(
+        translate: TranslateService,
+        private readonly loggerService: LoggerService
+    ) {
         translate.setDefaultLang('fr-FR');
         translate.use('fr-FR');
+    }
+
+    ngOnInit() {
+        this.loggerService.updateConfig();
     }
 }

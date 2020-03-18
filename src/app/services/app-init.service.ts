@@ -8,6 +8,7 @@ import {
     Pet
 } from '../_modules/angular-seed/petshop/app-petshop-api';
 import { postPetsList } from '../_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
+import { LoggerService } from '../_modules/shared/app-logger/services/logger.service';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,8 @@ import { postPetsList } from '../_modules/angular-seed/ngrx-store/app-ngrx-store
 export class AppInitService {
     constructor(
         private readonly petsServices: PetsServices,
-        private readonly store: Store<{ petsList: Array<any> }>
+        private readonly store: Store<{ petsList: Array<any> }>,
+        private readonly loggerService: LoggerService
     ) {}
 
     async Init() {
@@ -24,7 +26,9 @@ export class AppInitService {
                 .findPets()
                 .pipe(
                     catchError(error => {
-                        console.log(error);
+                        this.loggerService.ngxLogger.error(
+                            `AppInitService - Init() => ${error}`
+                        );
                         reject();
 
                         return new Observable<Pet[]>();
