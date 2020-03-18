@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +55,10 @@ export function initializeApp(appInitService: AppInitService) {
         AppNgrxStoreModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production
+        }),
+        LoggerModule.forRoot({
+            level: NgxLoggerLevel.INFO,
+            serverLogLevel: NgxLoggerLevel.OFF
         }),
         AppLoggerModule.forRoot()
     ],
