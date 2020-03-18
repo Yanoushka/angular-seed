@@ -1,2 +1,12 @@
-<button mat-button (click)="onClick()">LIKE</button>
-<button mat-button>SHARE</button>
+<div class="pet-controls-container">
+    <button mat-button (click)="onAdd()">
+        <i class="material-icons">add</i>
+    </button>
+    <input style="width: 15pt;" ([ngModel])="(petNumber)" />
+    <button mat-button (click)="onRemove()">
+        <i class="material-icons">remove</i>
+    </button>
+    <button mat-button (click)="onAddToCart()">
+        Add To Cart
+    </button>
+</div>

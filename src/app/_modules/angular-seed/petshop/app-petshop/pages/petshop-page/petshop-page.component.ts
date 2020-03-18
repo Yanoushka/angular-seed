@@ -5,22 +5,20 @@ import { ActivatedRoute } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-petshop-page',
-  templateUrl: './petshop-page.component.html',
-  styleUrls: ['./petshop-page.component.scss']
+    selector: 'app-petshop-page',
+    templateUrl: './petshop-page.component.html',
+    styleUrls: ['./petshop-page.component.scss']
 })
 export class PetshopPageComponent implements OnInit {
+    petsList: Observable<Pet[]>;
+    pet: Pet;
 
-  petsList: Observable<Pet[]>;
+    constructor(private readonly route: ActivatedRoute) {}
 
-  constructor(private readonly route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.petsList = this.route.data
-    .pipe(
-      tap(data => console.log(data)),
-      map(data => data.petsList)
-    );
-  }
-
+    ngOnInit(): void {
+        this.petsList = this.route.data.pipe(
+            tap(data => console.log(data)),
+            map(data => data.petsList)
+        );
+    }
 }
