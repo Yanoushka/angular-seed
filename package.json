@@ -4,8 +4,8 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "start:proxy-mock": "ng serve --proxyConfig=e2e/proxy/proxy.conf.js",
-        "start:json-server-mock": "concurrently -k \"json-server --watch db.json --middlewares json-server-middleware.js\" \"ng serve\"",
+        "start:with-proxy-mock": "ng serve --proxyConfig=e2e/proxy/proxy.conf.js",
+        "start:with-json-server-mock": "concurrently -k \"json-server --watch db.json --middlewares json-server-middleware.js\" \"ng serve\"",
         "json-server": "json-server --watch db.json --middlewares json-server-middleware.js",
         "build:prod": "ng build --prod",
         "build": "ng build",
