@@ -35,7 +35,13 @@ export class AppInitService {
                     })
                 )
                 .subscribe(petsList => {
+                    this.loggerService.ngxLogger.debug(
+                        `AppInitService - Init() => Retrieve pets list successful`
+                    );
                     this.store.dispatch(postPetsList({ petsList }));
+                    this.loggerService.ngxLogger.debug(
+                        `AppInitService - Init() => Pets list post in Ngrx Store`
+                    );
                     resolve();
                 });
         });
