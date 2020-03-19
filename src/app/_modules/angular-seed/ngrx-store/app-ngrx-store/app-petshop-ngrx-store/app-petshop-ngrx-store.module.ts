@@ -4,13 +4,8 @@ import { StoreModule } from '@ngrx/store';
 
 import { petsReducer } from './reducers/reducer';
 
-
-
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    StoreModule.forFeature('petsList', petsReducer)
-  ]
+    declarations: [],
+    imports: [CommonModule, StoreModule.forFeature('petshop', petsReducer)]
 })
-export class AppPetshopNgrxStoreModule { }
+export class AppPetshopNgrxStoreModule {}

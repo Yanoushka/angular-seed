@@ -8,6 +8,8 @@ import { LoggerService } from '../../../../shared/app-logger/services/logger.ser
 
 @Injectable()
 export class PetsListResolver implements Resolve<Pet[]> {
+    list: Pet[];
+
     constructor(
         private readonly petshopService: PetshopService,
         private readonly loggerService: LoggerService

@@ -18,9 +18,14 @@
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <!-- <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button> -->
-        <!-- <app-pet-controls [petId]="(pet | preventNull).id"></app-pet-controls> -->
-        <app-pet-controls></app-pet-controls>
+        <button
+            mat-raised-button
+            color="accent"
+            style="margin-bottom: 20pt;"
+            (click)="onDetails()"
+        >
+            Details
+        </button>
+        <app-pet-controls [petId]="pet.id"></app-pet-controls>
     </mat-card-actions>
 </mat-card>

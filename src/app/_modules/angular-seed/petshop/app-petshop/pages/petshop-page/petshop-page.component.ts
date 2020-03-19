@@ -10,15 +10,11 @@ import { map, tap } from 'rxjs/operators';
     styleUrls: ['./petshop-page.component.scss']
 })
 export class PetshopPageComponent implements OnInit {
-    petsList: Observable<Pet[]>;
-    pet: Pet;
+    petsList$: Observable<Pet[]>;
 
     constructor(private readonly route: ActivatedRoute) {}
 
     ngOnInit(): void {
-        this.petsList = this.route.data.pipe(
-            tap(data => console.log(data)),
-            map(data => data.petsList)
-        );
+        this.petsList$ = this.route.data.pipe(map(data => data.petsList));
     }
 }

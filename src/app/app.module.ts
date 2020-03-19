@@ -21,6 +21,7 @@ import { AppPetshopServicesModule } from './_modules/angular-seed/petshop/app-pe
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppInitService } from './services/app-init.service';
 import { AppLoggerModule } from './_modules/shared/app-logger/app-logger.module';
+import { AppPipeModule } from './_modules/shared/app-pipe/app-pipe.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
