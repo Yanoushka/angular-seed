@@ -7,13 +7,14 @@ const _cartReducer = createReducer(
     initialState,
     on(addPetToCart, (state, payload) => {
         const myState = { ...state };
-        myState.cart = [...myState.cart, payload];
+
+        myState.cart = [...myState.cart, payload.product];
 
         return myState;
     }),
     on(removePetFromCart, (state, payload) => {
         const myState = { ...state };
-        myState.cart = [...myState.cart, payload];
+        myState.cart = [...myState.cart, payload.product];
 
         return myState;
     })

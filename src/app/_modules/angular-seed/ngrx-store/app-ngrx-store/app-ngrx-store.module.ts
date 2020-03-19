@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppPetshopNgrxStoreModule } from './app-petshop-ngrx-store/app-petshop-ngrx-store.module';
 import { AppShoppingCartNgrxStoreModule } from './app-shopping-cart-ngrx-store/app-shopping-cart-ngrx-store.module';
 
-
-
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    AppPetshopNgrxStoreModule,
-    AppShoppingCartNgrxStoreModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([])
-  ]
+    declarations: [],
+    imports: [
+        CommonModule,
+        AppPetshopNgrxStoreModule,
+        AppShoppingCartNgrxStoreModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25
+        })
+    ]
 })
-export class AppNgrxStoreModule { }
+export class AppNgrxStoreModule {}

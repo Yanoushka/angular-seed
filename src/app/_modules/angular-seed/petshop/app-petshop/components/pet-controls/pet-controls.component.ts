@@ -3,6 +3,9 @@ import { Store } from '@ngrx/store';
 
 import { postPetsList } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
 import { Pet } from '../../../app-petshop-api';
+import { ProductBuilder } from 'src/app/_modules/angular-seed/shoppingCart/builders/product.builder';
+import { Product } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/models/product.model';
+import { addPetToCart } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-shopping-cart-ngrx-store/actions/action';
 
 @Component({
     selector: 'app-pet-controls',
@@ -10,31 +13,36 @@ import { Pet } from '../../../app-petshop-api';
     styleUrls: ['./pet-controls.component.scss']
 })
 export class PetControlsComponent implements OnInit {
-    @Input() petId: number;
+    @Input() pet: Pet;
 
-    petNumber = 0;
+    petQuantity = 0;
 
-    constructor(private readonly store: Store<{ petsList: Array<Pet[]> }>) {}
+    constructor(private readonly store: Store<{ cart: Product[] }>) {}
 
     ngOnInit(): void {}
 
     onIncrement() {
-        if (this.petNumber < 5) {
-            this.petNumber++;
+        if (this.petQuantity < 5) {
+            this.petQuantity++;
         }
-        console.log(this.petId);
+        console.log(this.pet);
     }
 
     onDecrement() {
-        if (this.petNumber > 0) {
-            this.petNumber--;
+        if (this.petQuantity > 0) {
+            this.petQuantity--;
         }
     }
 
     onAddToCart() {
+        const product = new ProductBuilder()
+            .withPet(this.pet)
+            .setQuantity(this.petQuantity)
+            .build();
+
         this.store.dispatch(
-            postPetsList({
-                petsList: [{ name: 'labrador' }, { name: 'rotweiler' }]
+            addPetToCart({
+                product
             })
         );
     }
