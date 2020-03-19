@@ -1,0 +1,30 @@
+<div class="shopping-cart-container">
+    <div class="shopping-items-container">
+        <div *ngFor="let product of products$ | async">
+            <div
+                style="display: flex;flex-direction: row;justify-content: flex-start;align-items: center;align-content: center;"
+            >
+                <span>{{ stringifyObject(product) }}</span>
+                <span
+                    class="material-icons small-delete-icon"
+                    (click)="onDelete(product)"
+                >
+                    delete
+                </span>
+            </div>
+        </div>
+        <div *ngIf="!(products$ | async).length">
+            {{ 'APP.SHOPPINGCART.EMPTY' | translate }}
+        </div>
+    </div>
+    <button
+        mat-mini-fab
+        color="primary"
+        style="position: absolute; top: 200pt;left: 10pt;"
+        routerLink="/petshop"
+    >
+        <span class="material-icons">
+            arrow_back
+        </span>
+    </button>
+</div>

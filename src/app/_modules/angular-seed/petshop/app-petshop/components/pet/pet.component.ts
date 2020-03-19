@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pet } from '../../../app-petshop-api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-pet',
@@ -9,9 +10,11 @@ import { Pet } from '../../../app-petshop-api';
 export class PetComponent implements OnInit {
     @Input() pet: Pet;
 
-    constructor() {}
+    constructor(private readonly router: Router) {}
 
     ngOnInit(): void {}
 
-    onDetails() {}
+    onDetails() {
+        this.router.navigate([`/petshop/pet/${this.pet.id}`]);
+    }
 }

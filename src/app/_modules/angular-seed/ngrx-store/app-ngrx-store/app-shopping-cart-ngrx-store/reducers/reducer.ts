@@ -5,18 +5,27 @@ import { initialState } from '../states/state';
 
 const _cartReducer = createReducer(
     initialState,
-    on(addPetToCart, (state, payload) => {
-        const myState = { ...state };
+    on(addPetToCart, (state, productToAdd) => {
+        const productsInCart = JSON.parse(JSON.stringify(state.cart));
+        const matchedProductInCart = productsInCart.find(
+            product => product.payload.id === productToAdd.product.payload.id
+        );
 
-        myState.cart = [...myState.cart, payload.product];
+        if (!!matchedProductInCart) {
+            matchedProductInCart.quantity += productToAdd.product.quantity;
+        } else {
+            productsInCart.push(productToAdd.product);
+        }
 
-        return myState;
+        return { cart: productsInCart };
     }),
-    on(removePetFromCart, (state, payload) => {
-        const myState = { ...state };
-        myState.cart = [...myState.cart, payload.product];
+    on(removePetFromCart, (state, productToRemove) => {
+        const productsInCart = JSON.parse(JSON.stringify(state.cart));
+        const updatedProductsInCart = productsInCart.filter(
+            product => product.payload.id !== productToRemove.product.payload.id
+        );
 
-        return myState;
+        return { cart: updatedProductsInCart };
     })
 );
 

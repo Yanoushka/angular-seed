@@ -22,6 +22,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppInitService } from './services/app-init.service';
 import { AppLoggerModule } from './_modules/shared/app-logger/app-logger.module';
 import { AppPipeModule } from './_modules/shared/app-pipe/app-pipe.module';
+import { AppShoppingCartModule } from './_modules/angular-seed/shoppingCart/app-shopping-cart/app-shopping-cart.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -50,6 +51,7 @@ export function initializeApp(appInitService: AppInitService) {
         }),
         AppMaterialModule,
         AppPetshopModule,
+        AppShoppingCartModule,
         AppErrorPagesModule,
         PetshopApiModule,
         AppPetshopServicesModule.forRoot(),

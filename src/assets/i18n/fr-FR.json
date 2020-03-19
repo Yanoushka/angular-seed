@@ -1,5 +1,8 @@
 {
-  "APP": {
-    "TITLE": "ANGULAR-SEED"
-  }
+    "APP": {
+        "TITLE": "ANGULAR-SEED",
+        "SHOPPINGCART": {
+            "EMPTY": "Your shopping cart is empty"
+        }
+    }
 }
