@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Pet } from '../../../app-petshop-api';
+import { Pet } from '../../../../../../__modules-swagger-codegen/app-petshop-api';
 import { Router } from '@angular/router';
 
 @Component({

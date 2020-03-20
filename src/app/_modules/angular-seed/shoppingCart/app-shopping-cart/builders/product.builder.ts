@@ -1,5 +1,5 @@
 import { Product } from '../models/product.model';
-import { Pet } from '../../../petshop/app-petshop-api';
+import { Pet } from 'src/app/__modules-swagger-codegen/app-petshop-api';
 
 export class ProductBuilder {
     private readonly _product: Product = new Product();

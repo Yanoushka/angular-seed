@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import {
     DefaultService as PetsServices,
     Pet
-} from '../_modules/angular-seed/petshop/app-petshop-api';
+} from '../__modules-swagger-codegen/app-petshop-api';
 import { postPetsList } from '../_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
 import { LoggerService } from '../_modules/shared/app-logger/services/logger.service';
 

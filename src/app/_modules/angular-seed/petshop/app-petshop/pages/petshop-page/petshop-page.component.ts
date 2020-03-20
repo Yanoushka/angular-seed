@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pet } from '../../../app-petshop-api';
+import { Pet } from '../../../../../../__modules-swagger-codegen/app-petshop-api';
 import { ActivatedRoute } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 

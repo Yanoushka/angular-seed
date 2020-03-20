@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { postPetsList } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
-import { Pet } from '../../../app-petshop-api';
+import { Pet } from '../../../../../../__modules-swagger-codegen/app-petshop-api';
 import { ProductBuilder } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/builders/product.builder';
 import { Product } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/models/product.model';
 import { addPetToCart } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-shopping-cart-ngrx-store/actions/action';

@@ -14,7 +14,7 @@ import { AppErrorPagesModule } from './_modules/shared/app-error-pages/app-error
 import {
     ApiModule as PetshopApiModule,
     BASE_PATH
-} from './_modules/angular-seed/petshop/app-petshop-api';
+} from './__modules-swagger-codegen/app-petshop-api';
 import { environment } from '../environments/environment';
 import { AppNgrxStoreModule } from './_modules/angular-seed/ngrx-store/app-ngrx-store/app-ngrx-store.module';
 import { AppPetshopServicesModule } from './_modules/angular-seed/petshop/app-petshop-services/app-petshop-services.module';

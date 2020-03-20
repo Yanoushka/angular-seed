@@ -3,7 +3,10 @@ import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { DefaultService as PetshopService, Pet } from '../../app-petshop-api';
+import {
+    DefaultService as PetshopService,
+    Pet
+} from '../../../../../__modules-swagger-codegen/app-petshop-api';
 import { LoggerService } from '../../../../shared/app-logger/services/logger.service';
 
 @Injectable()
