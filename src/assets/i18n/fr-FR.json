@@ -3,6 +3,11 @@
         "TITLE": "ANGULAR-SEED",
         "SHOPPINGCART": {
             "EMPTY": "Your shopping cart is empty"
+        },
+        "PET": {
+            "BUTTONS": {
+                "DETAILS": "Details"
+            }
         }
     }
 }

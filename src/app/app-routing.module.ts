@@ -8,18 +8,14 @@ import { PetsListResolver } from './_modules/angular-seed/petshop/app-petshop-se
 const routes: Routes = [
     {
         path: 'petshop',
-        loadChildren:
-            // tslint:disable-next-line: max-line-length
-            `./_modules/angular-seed/petshop/app-petshop/app-petshop.module#AppPetshopModule`,
+        loadChildren: `./_modules/angular-seed/petshop/app-petshop/app-petshop.module#AppPetshopModule`,
         resolve: {
             petsList: PetsListResolver
         }
     },
     {
         path: 'shopping-cart',
-        loadChildren:
-            // tslint:disable-next-line: max-line-length
-            `./_modules/angular-seed/shoppingCart/app-shopping-cart/app-shopping-cart.module#AppShoppingCartModule`
+        loadChildren: `./_modules/angular-seed/shoppingCart/app-shopping-cart/app-shopping-cart.module#AppShoppingCartModule`
     },
     {
         path: '',
