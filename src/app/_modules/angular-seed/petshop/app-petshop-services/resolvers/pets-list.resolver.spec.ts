@@ -1,16 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-
-import { PetsListService } from './pets-list.service';
+import { PetsListResolver } from './pets-list.resolver';
 
 describe('PetsListService', () => {
-  let service: PetsListService;
+    let service: PetsListResolver;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PetsListService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(PetsListResolver);
+    });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(service).toBeTruthy();
+    });
 });

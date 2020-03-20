@@ -4,12 +4,12 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "start:with-proxy-mock": "ng serve --proxyConfig=e2e/proxy/proxy.conf.js",
+        "start:with-proxy-mock": "ng serve --proxyConfig=proxy/proxy.conf.js",
         "start:with-json-server-mock": "concurrently -k \"json-server --watch db.json --middlewares json-server-middleware.js\" \"ng serve\"",
         "json-server": "json-server --watch db.json --middlewares json-server-middleware.js",
         "build:prod": "ng build --prod",
         "build": "ng build",
-        "test": "ng test",
+        "test": "jest --watch",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "dev:ssr": "ng run angular-seed:serve-ssr",
@@ -21,6 +21,28 @@
     "husky": {
         "hooks": {
             "pre-commit": "pretty-quick --staged"
+        }
+    },
+    "jest": {
+        "preset": "jest-preset-angular",
+        "setupFilesAfterEnv": [
+            "<rootDir>/setupJest.ts"
+        ],
+        "testPathIgnorePatterns": [
+            "<rootDir>/node_modules/",
+            "<rootDir>/dist/",
+            "<rootDir>/src/test.ts",
+            "<rootDir>/projects/nric/src/test.ts"
+        ],
+        "globals": {
+            "ts-jest": {
+                "tsConfig": "<rootDir>/tsconfig.spec.json",
+                "stringifyContentPathRegex": "\\.html$",
+                "astTransformers": [
+                    "jest-preset-angular/build/InlineFilesTransformer",
+                    "jest-preset-angular/build/StripStylesTransformer"
+                ]
+            }
         }
     },
     "private": true,
@@ -59,21 +81,18 @@
         "@angular/language-service": "~9.0.6",
         "@nguniversal/builders": "^9.0.2",
         "@types/express": "^4.17.0",
-        "@types/jasmine": "~3.5.0",
-        "@types/jasminewd2": "~2.0.3",
+        "@types/jest": "^25.1.4",
         "@types/node": "^12.11.1",
+        "@types/sinon": "^7.5.2",
         "codelyzer": "^5.1.2",
         "husky": "^4.2.3",
-        "jasmine-core": "~3.5.0",
-        "jasmine-spec-reporter": "~4.2.1",
-        "karma": "~4.3.0",
-        "karma-chrome-launcher": "~3.1.0",
-        "karma-coverage-istanbul-reporter": "~2.1.0",
-        "karma-jasmine": "~2.0.1",
-        "karma-jasmine-html-reporter": "^1.4.2",
+        "jest": "^25.1.0",
+        "jest-preset-angular": "^8.1.2",
+        "jest-sinon": "^1.0.3",
+        "ngx-translate-testing": "^3.0.0",
         "prettier": "1.19.1",
         "pretty-quick": "^2.0.1",
-        "protractor": "~5.4.3",
+        "sinon": "^9.0.1",
         "ts-node": "~8.3.0",
         "tslint": "~5.18.0",
         "typescript": "~3.7.5"
