@@ -10,6 +10,8 @@
         "build:prod": "ng build --prod",
         "build": "ng build",
         "test": "jest --watch",
+        "cypress:open": "cypress open",
+        "cypress:run": "cypress run --browser chrome --headless --spec **/*.feature",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "dev:ssr": "ng run angular-seed:serve-ssr",
@@ -44,6 +46,9 @@
                 ]
             }
         }
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
     },
     "private": true,
     "dependencies": {
@@ -85,6 +90,8 @@
         "@types/node": "^12.11.1",
         "@types/sinon": "^7.5.2",
         "codelyzer": "^5.1.2",
+        "cypress": "^4.2.0",
+        "cypress-cucumber-preprocessor": "^2.0.1",
         "husky": "^4.2.3",
         "jest": "^25.1.0",
         "jest-preset-angular": "^8.1.2",
