@@ -8,7 +8,5 @@ import { Component, OnInit } from '@angular/core';
 export class PetDetailsPageComponent implements OnInit {
     constructor() {}
 
-    ngOnInit(): void {
-        console.log('ici');
-    }
+    ngOnInit(): void {}
 }

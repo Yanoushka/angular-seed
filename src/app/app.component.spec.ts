@@ -10,26 +10,12 @@ import { AppComponent } from './app.component';
 import { LoggerService } from './_modules/shared/app-logger/services/logger.service';
 
 describe('AppComponent', () => {
-    const FRENCH_LANGUAGE = 'fr';
-    const FRENCH_TRANSLATIONS = {
-        APP: {
-            TITLE: 'ANGULAR-SEED',
-            SHOPPINGCART: {
-                EMPTY: 'Your shopping cart is empty'
-            },
-            PET: {
-                BUTTONS: {
-                    DETAILS: 'Details'
-                }
-            }
-        }
-    };
     class TranslateServiceStub {
         public onLangChange: EventEmitter<any> = new EventEmitter();
         public onTranslationChange: EventEmitter<any> = new EventEmitter();
         public onDefaultLangChange: EventEmitter<any> = new EventEmitter();
         getTranslation(lang: string): Observable<any> {
-            return of(FRENCH_TRANSLATIONS);
+            return of();
         }
         setDefaultLang(lang: string) {}
         use(lang: string) {}
@@ -47,15 +33,10 @@ describe('AppComponent', () => {
             return of([]);
         }
     }
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [
-                RouterTestingModule,
-                TranslateTestingModule.withTranslations(
-                    FRENCH_LANGUAGE,
-                    FRENCH_TRANSLATIONS
-                )
-            ],
+            imports: [RouterTestingModule, TranslateTestingModule],
             declarations: [AppComponent],
             providers: [
                 { provide: TranslateService, useClass: TranslateServiceStub },

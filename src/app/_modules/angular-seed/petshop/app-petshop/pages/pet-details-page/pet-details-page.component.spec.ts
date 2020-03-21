@@ -3,23 +3,29 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PetDetailsPageComponent } from './pet-details-page.component';
 
 describe('PetDetailsPageComponent', () => {
-  let component: PetDetailsPageComponent;
-  let fixture: ComponentFixture<PetDetailsPageComponent>;
+    let component: PetDetailsPageComponent;
+    let fixture: ComponentFixture<PetDetailsPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PetDetailsPageComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [PetDetailsPageComponent]
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PetDetailsPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PetDetailsPageComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('should render template', () => {
+        const compiled = fixture.nativeElement;
+        expect(compiled.querySelector('p').textContent).toContain(
+            'pet-details-page works!'
+        );
+    });
 });
