@@ -5,5 +5,6 @@ Given(`I visit Angular-Seed`, () => {
 });
 
 Then(`Angular-Seed page is displayed`, () => {
-    // cy.visit('http://localhost:4200')
+    cy.get('#detailsBtn').click();
+    cy.get('p').should('contain', 'pet-details-page works!');
 });
