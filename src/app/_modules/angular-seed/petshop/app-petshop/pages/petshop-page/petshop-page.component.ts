@@ -9,12 +9,12 @@ import { map, tap } from 'rxjs/operators';
     templateUrl: './petshop-page.component.html',
     styleUrls: ['./petshop-page.component.scss']
 })
-export class PetshopPageComponent implements OnInit {
-    petsList$: Observable<Pet[]>;
+export class PetshopPageComponent<T> implements OnInit {
+    itemsList$: Observable<T[]>;
 
     constructor(private readonly route: ActivatedRoute) {}
 
     ngOnInit(): void {
-        this.petsList$ = this.route.data.pipe(map(data => data.petsList));
+        this.itemsList$ = this.route.data.pipe(map(data => data.itemsList));
     }
 }

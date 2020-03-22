@@ -6,21 +6,22 @@ import { Store, select } from '@ngrx/store';
 import { Product } from './_modules/angular-seed/shoppingCart/app-shopping-cart/models/product.model';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { Item } from './_modules/angular-seed/petshop/models/item.model';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent<T extends Item> implements OnInit {
     title = 'angular-seed';
 
-    products$: Observable<Product[]>;
+    products$: Observable<Product<T>[]>;
 
     constructor(
         translate: TranslateService,
         private readonly loggerService: LoggerService,
-        private readonly store: Store<{ cart: Product[] }>
+        private readonly store: Store<{ cart: Product<T>[] }>
     ) {
         translate.setDefaultLang('fr-FR');
         translate.use('fr-FR');

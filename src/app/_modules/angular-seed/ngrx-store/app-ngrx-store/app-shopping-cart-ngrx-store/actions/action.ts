@@ -1,5 +1,5 @@
-import { createAction, props } from '@ngrx/store';
-
+import { createAction, props, Action } from '@ngrx/store';
+import { Item } from 'src/app/_modules/angular-seed/petshop/models/item.model';
 import { Product } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/models/product.model';
 
 export enum ActionTypes {
@@ -9,10 +9,10 @@ export enum ActionTypes {
 
 export const addPetToCart = createAction(
     ActionTypes.ADD_PET,
-    props<{ product: Product }>()
+    props<{ product: any }>()
 );
 
 export const removePetFromCart = createAction(
     ActionTypes.REMOVE_PET,
-    props<{ product: Product }>()
+    props<{ product: any }>()
 );

@@ -13,7 +13,7 @@ const routes: Routes = [
                 component: PetshopPageComponent
             },
             {
-                path: 'pet/:petId',
+                path: 'item/:itemId',
                 component: PetDetailsPageComponent
             },
             {

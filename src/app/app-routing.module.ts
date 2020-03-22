@@ -7,19 +7,19 @@ import { PetsListResolver } from './_modules/angular-seed/petshop/app-petshop-se
 
 const routes: Routes = [
     {
-        path: 'petshop',
+        path: 'eshop',
         loadChildren: `./_modules/angular-seed/petshop/app-petshop/app-petshop.module#AppPetshopModule`,
         resolve: {
-            petsList: PetsListResolver
+            itemsList: PetsListResolver
         }
     },
     {
-        path: 'shopping-cart',
+        path: 'ecart',
         loadChildren: `./_modules/angular-seed/shoppingCart/app-shopping-cart/app-shopping-cart.module#AppShoppingCartModule`
     },
     {
         path: '',
-        redirectTo: 'petshop',
+        redirectTo: 'eshop',
         pathMatch: 'full'
     },
     {

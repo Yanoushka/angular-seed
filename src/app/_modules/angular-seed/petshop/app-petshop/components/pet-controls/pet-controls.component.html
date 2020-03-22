@@ -5,7 +5,7 @@
     <input
         matInput
         style="width: 22pt;height: 20pt;margin-left: 4pt;font-size: 12pt;text-align: center;"
-        [(value)]="petQuantity"
+        [(value)]="itemQuantity"
     />
     <button mat-raised-button color="primary" (click)="onDecrement()">
         <i class="material-icons">remove</i>
@@ -13,7 +13,7 @@
     <button
         mat-raised-button
         color="accent"
-        [disabled]="!petQuantity"
+        [disabled]="!itemQuantity"
         (click)="onAddToCart()"
     >
         Add To Cart

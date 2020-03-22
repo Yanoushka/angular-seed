@@ -1,43 +1,41 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { postPetsList } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
-import { Pet } from '../../../../../../__modules-swagger-codegen/app-petshop-api';
 import { ProductBuilder } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/builders/product.builder';
 import { Product } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/models/product.model';
 import { addPetToCart } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-shopping-cart-ngrx-store/actions/action';
+import { Item } from '../../../models/item.model';
 
 @Component({
     selector: 'app-pet-controls',
     templateUrl: './pet-controls.component.html',
     styleUrls: ['./pet-controls.component.scss']
 })
-export class PetControlsComponent implements OnInit {
-    @Input() pet: Pet;
+export class PetControlsComponent<T extends Item> implements OnInit {
+    @Input() item: T;
 
-    petQuantity = 0;
+    itemQuantity = 0;
 
-    constructor(private readonly store: Store<{ cart: Product[] }>) {}
+    constructor(private readonly store: Store<{ cart: Product<T>[] }>) {}
 
     ngOnInit(): void {}
 
     onIncrement() {
-        if (this.petQuantity < 5) {
-            this.petQuantity++;
+        if (this.itemQuantity < 5) {
+            this.itemQuantity++;
         }
-        console.log(this.pet);
     }
 
     onDecrement() {
-        if (this.petQuantity > 0) {
-            this.petQuantity--;
+        if (this.itemQuantity > 0) {
+            this.itemQuantity--;
         }
     }
 
     onAddToCart() {
         const product = new ProductBuilder()
-            .withPet(this.pet)
-            .setQuantity(this.petQuantity)
+            .withPet(this.item)
+            .setQuantity(this.itemQuantity)
             .build();
 
         this.store.dispatch(

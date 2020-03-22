@@ -1,11 +1,12 @@
 import { Product } from '../models/product.model';
 import { Pet } from 'src/app/__modules-swagger-codegen/app-petshop-api';
+import { Item } from '../../../petshop/models/item.model';
 
-export class ProductBuilder {
-    private readonly _product: Product = new Product();
+export class ProductBuilder<T extends Item> {
+    private readonly _product: Product<T> = new Product<T>();
 
-    withPet(pet: Pet) {
-        this._product.payload = pet;
+    withPet(item: T) {
+        this._product.payload = item;
 
         return this;
     }
