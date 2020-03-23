@@ -1,10 +1,10 @@
-<div class="shopping-cart-container">
-    <div class="shopping-items-container">
+<div class="e-cart-container">
+    <div class="products-container">
         <div *ngFor="let product of products$ | async">
-            <div
-                style="display: flex;flex-direction: row;justify-content: flex-start;align-items: center;align-content: center;"
-            >
-                <span>{{ stringifyObject(product) }}</span>
+            <div class="product-details">
+                <span>{{
+                    product.payload.name + ' * ' + product.quantity
+                }}</span>
                 <span
                     class="material-icons small-delete-icon"
                     (click)="onDelete(product)"
@@ -20,7 +20,7 @@
     <button
         mat-mini-fab
         color="primary"
-        style="position: absolute; top: 200pt;left: 10pt;"
+        class="arrow-back-btn"
         routerLink="/eshop"
     >
         <span class="material-icons">

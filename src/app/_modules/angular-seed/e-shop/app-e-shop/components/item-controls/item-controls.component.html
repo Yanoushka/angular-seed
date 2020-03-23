@@ -2,11 +2,7 @@
     <button mat-raised-button color="primary" (click)="onIncrement()">
         <i class="material-icons">add</i>
     </button>
-    <input
-        matInput
-        style="width: 22pt;height: 20pt;margin-left: 4pt;font-size: 12pt;text-align: center;"
-        [(value)]="itemQuantity"
-    />
+    <input matInput class="item-controls-input" [(value)]="itemQuantity" />
     <button mat-raised-button color="primary" (click)="onDecrement()">
         <i class="material-icons">remove</i>
     </button>

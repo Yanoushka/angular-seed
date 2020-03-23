@@ -4,10 +4,10 @@
         <mat-card-title>{{ item.name }}</mat-card-title>
         <mat-card-subtitle>{{ item.category }}</mat-card-subtitle>
     </mat-card-header>
-    <div style="width: 400px; height: 345px;">
+    <div class="card-image">
         <img mat-card-image [src]="item.image" alt="Photo of the dog" />
     </div>
-    <mat-card-content style="height: 100px;">
+    <mat-card-content class="card-content">
         <p>
             {{ item.desc }}
         </p>
