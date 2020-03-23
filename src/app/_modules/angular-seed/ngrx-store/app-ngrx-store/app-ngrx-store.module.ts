@@ -4,15 +4,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { AppPetshopNgrxStoreModule } from './app-petshop-ngrx-store/app-petshop-ngrx-store.module';
-import { AppShoppingCartNgrxStoreModule } from './app-shopping-cart-ngrx-store/app-shopping-cart-ngrx-store.module';
+import { AppEShopNgrxStoreModule } from './app-e-shop-ngrx-store/app-e-shop-ngrx-store.module';
+import { AppECartNgrxStoreModule } from './app-e-cart-ngrx-store/app-e-cart-ngrx-store.module';
 
 @NgModule({
     declarations: [],
     imports: [
         CommonModule,
-        AppPetshopNgrxStoreModule,
-        AppShoppingCartNgrxStoreModule,
+        AppEShopNgrxStoreModule,
+        AppECartNgrxStoreModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({

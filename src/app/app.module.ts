@@ -8,21 +8,20 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppPetshopModule } from './_modules/angular-seed/petshop/app-petshop/app-petshop.module';
+import { AppEShopModule } from './_modules/angular-seed/e-shop/app-e-shop/app-e-shop.module';
 import { AppMaterialModule } from './_modules/shared/app-material/app-material.module';
 import { AppErrorPagesModule } from './_modules/shared/app-error-pages/app-error-pages.module';
 import {
-    ApiModule as PetshopApiModule,
+    ApiModule as EShopApiModule,
     BASE_PATH
 } from './__modules-swagger-codegen/app-petshop-api';
 import { environment } from '../environments/environment';
 import { AppNgrxStoreModule } from './_modules/angular-seed/ngrx-store/app-ngrx-store/app-ngrx-store.module';
-import { AppPetshopServicesModule } from './_modules/angular-seed/petshop/app-petshop-services/app-petshop-services.module';
+import { AppEShopServicesModule } from './_modules/angular-seed/e-shop/app-e-shop-services/app-e-shop-services.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppInitService } from './services/app-init.service';
 import { AppLoggerModule } from './_modules/shared/app-logger/app-logger.module';
-import { AppPipeModule } from './_modules/shared/app-pipe/app-pipe.module';
-import { AppShoppingCartModule } from './_modules/angular-seed/shoppingCart/app-shopping-cart/app-shopping-cart.module';
+import { AppECartModule } from './_modules/angular-seed/e-cart/app-e-cart/app-e-cart.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -50,11 +49,11 @@ export function initializeApp(appInitService: AppInitService) {
             }
         }),
         AppMaterialModule,
-        AppPetshopModule,
-        AppShoppingCartModule,
+        AppEShopModule,
+        AppECartModule,
         AppErrorPagesModule,
-        PetshopApiModule,
-        AppPetshopServicesModule.forRoot(),
+        EShopApiModule,
+        AppEShopServicesModule.forRoot(),
         AppNgrxStoreModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production

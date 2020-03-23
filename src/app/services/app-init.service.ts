@@ -7,7 +7,7 @@ import {
     DefaultService as PetsServices,
     Pet
 } from '../__modules-swagger-codegen/app-petshop-api';
-import { postPetsList } from '../_modules/angular-seed/ngrx-store/app-ngrx-store/app-petshop-ngrx-store/actions/action';
+import { postItemsList } from '../_modules/angular-seed/ngrx-store/app-ngrx-store/app-e-shop-ngrx-store/actions/action';
 import { LoggerService } from '../_modules/shared/app-logger/services/logger.service';
 
 @Injectable({
@@ -16,7 +16,7 @@ import { LoggerService } from '../_modules/shared/app-logger/services/logger.ser
 export class AppInitService {
     constructor(
         private readonly petsServices: PetsServices,
-        private readonly store: Store<{ petsList: Array<any> }>,
+        private readonly store: Store<{ itemsList: Array<any> }>,
         private readonly loggerService: LoggerService
     ) {}
 
@@ -34,11 +34,11 @@ export class AppInitService {
                         return new Observable<Pet[]>();
                     })
                 )
-                .subscribe(petsList => {
+                .subscribe(itemsList => {
                     this.loggerService.ngxLogger.debug(
                         `AppInitService - Init() => Retrieve pets list successful`
                     );
-                    this.store.dispatch(postPetsList({ petsList }));
+                    this.store.dispatch(postItemsList({ itemsList }));
                     this.loggerService.ngxLogger.debug(
                         `AppInitService - Init() => Pets list post in Ngrx Store`
                     );
