@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Product } from 'src/app/_modules/angular-seed/e-cart/app-e-cart/models/product.model';
+import { Product } from 'src/app/_modules/angular-breed/e-cart/app-e-cart/models/product.model';
 
 interface CartProduct extends Product<any> {}
 

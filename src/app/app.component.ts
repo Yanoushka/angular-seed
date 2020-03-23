@@ -3,10 +3,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from './_modules/shared/app-logger/services/logger.service';
 
 import { Store, select } from '@ngrx/store';
-import { Product } from './_modules/angular-seed/e-cart/app-e-cart/models/product.model';
+import { Product } from './_modules/angular-breed/e-cart/app-e-cart/models/product.model';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { Item } from './_modules/angular-seed/e-shop/app-e-shop/models/item.model';
+import { Item } from './_modules/angular-breed/e-shop/app-e-shop/models/item.model';
 
 @Component({
     selector: 'app-root',
@@ -14,8 +14,6 @@ import { Item } from './_modules/angular-seed/e-shop/app-e-shop/models/item.mode
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent<T extends Item> implements OnInit {
-    title = 'angular-breed';
-
     products$: Observable<Product<T>[]>;
 
     constructor(

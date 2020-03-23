@@ -8,14 +8,14 @@ import { ItemsListResolver } from './resolvers/items-list.resolver';
 const routes: Routes = [
     {
         path: 'eshop',
-        loadChildren: `./_modules/angular-seed/e-shop/app-e-shop/app-e-shop.module#AppEShopModule`,
+        loadChildren: `./_modules/angular-breed/e-shop/app-e-shop/app-e-shop.module#AppEShopModule`,
         resolve: {
             itemsList: ItemsListResolver
         }
     },
     {
         path: 'ecart',
-        loadChildren: `./_modules/angular-seed/e-cart/app-e-cart/app-e-cart.module#AppECartModule`
+        loadChildren: `./_modules/angular-breed/e-cart/app-e-cart/app-e-cart.module#AppECartModule`
     },
     {
         path: '',

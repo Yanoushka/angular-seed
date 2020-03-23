@@ -4,8 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { map, tap } from 'rxjs/operators';
 
 import { Product } from '../../models/product.model';
-import { removeProductFromCart } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-e-cart-ngrx-store/actions/action';
-import { Item } from 'src/app/_modules/angular-seed/e-shop/app-e-shop/models/item.model';
+import { removeProductFromCart } from 'src/app/_modules/angular-breed/ngrx-store/app-ngrx-store/app-e-cart-ngrx-store/actions/action';
+import { Item } from 'src/app/_modules/angular-breed/e-shop/app-e-shop/models/item.model';
 
 @Component({
     selector: 'app-e-cart-page',

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { ProductBuilder } from 'src/app/_modules/angular-seed/e-cart/app-e-cart/builders/product.builder';
-import { Product } from 'src/app/_modules/angular-seed/e-cart/app-e-cart/models/product.model';
-import { addProductToCart } from 'src/app/_modules/angular-seed/ngrx-store/app-ngrx-store/app-e-cart-ngrx-store/actions/action';
+import { ProductBuilder } from 'src/app/_modules/angular-breed/e-cart/app-e-cart/builders/product.builder';
+import { Product } from 'src/app/_modules/angular-breed/e-cart/app-e-cart/models/product.model';
+import { addProductToCart } from 'src/app/_modules/angular-breed/ngrx-store/app-ngrx-store/app-e-cart-ngrx-store/actions/action';
 import { Item } from '../../models/item.model';
 
 @Component({

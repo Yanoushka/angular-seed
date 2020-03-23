@@ -8,7 +8,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppEShopModule } from './_modules/angular-seed/e-shop/app-e-shop/app-e-shop.module';
+import { AppEShopModule } from './_modules/angular-breed/e-shop/app-e-shop/app-e-shop.module';
 import { AppMaterialModule } from './_modules/shared/app-material/app-material.module';
 import { AppErrorPagesModule } from './_modules/shared/app-error-pages/app-error-pages.module';
 import {
@@ -16,12 +16,12 @@ import {
     BASE_PATH
 } from './__modules-swagger-codegen/app-petshop-api';
 import { environment } from '../environments/environment';
-import { AppNgrxStoreModule } from './_modules/angular-seed/ngrx-store/app-ngrx-store/app-ngrx-store.module';
-import { AppEShopServicesModule } from './_modules/angular-seed/e-shop/app-e-shop-services/app-e-shop-services.module';
+import { AppNgrxStoreModule } from './_modules/angular-breed/ngrx-store/app-ngrx-store/app-ngrx-store.module';
+import { AppEShopServicesModule } from './_modules/angular-breed/e-shop/app-e-shop-services/app-e-shop-services.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppInitService } from './services/app-init.service';
 import { AppLoggerModule } from './_modules/shared/app-logger/app-logger.module';
-import { AppECartModule } from './_modules/angular-seed/e-cart/app-e-cart/app-e-cart.module';
+import { AppECartModule } from './_modules/angular-breed/e-cart/app-e-cart/app-e-cart.module';
 import { ItemsListResolver } from './resolvers/items-list.resolver';
 
 // AoT requires an exported function for factories

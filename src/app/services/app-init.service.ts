@@ -7,7 +7,7 @@ import {
     DefaultService as PetsServices,
     Pet
 } from '../__modules-swagger-codegen/app-petshop-api';
-import { postItemsList } from '../_modules/angular-seed/ngrx-store/app-ngrx-store/app-e-shop-ngrx-store/actions/action';
+import { postItemsList } from '../_modules/angular-breed/ngrx-store/app-ngrx-store/app-e-shop-ngrx-store/actions/action';
 import { LoggerService } from '../_modules/shared/app-logger/services/logger.service';
 
 @Injectable({
