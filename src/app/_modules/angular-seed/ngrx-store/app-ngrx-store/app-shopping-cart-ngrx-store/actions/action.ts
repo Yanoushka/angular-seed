@@ -1,6 +1,4 @@
-import { createAction, props, Action } from '@ngrx/store';
-import { Item } from 'src/app/_modules/angular-seed/petshop/models/item.model';
-import { Product } from 'src/app/_modules/angular-seed/shoppingCart/app-shopping-cart/models/product.model';
+import { createAction, props } from '@ngrx/store';
 
 export enum ActionTypes {
     ADD_PET = '[Cart] Add pet to cart',
