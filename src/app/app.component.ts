@@ -14,6 +14,8 @@ import { Item } from './_modules/angular-breed/e-shop/app-e-shop/models/item.mod
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent<T extends Item> implements OnInit {
+    title = 'angular-seed';
+
     products$: Observable<Product<T>[]>;
 
     constructor(

@@ -13,7 +13,6 @@
         "e2e:open": "concurrently -k \"npm run start:with-json-server-mock\" \"cypress open\"",
         "e2e:run": "concurrently -k \"npm run start:with-json-server-mock\" \"cypress run --browser chrome --headless --spec **/*.feature\"",
         "lint": "ng lint",
-        "e2e": "ng e2e",
         "dev:ssr": "ng run angular-seed:serve-ssr",
         "serve:ssr": "node dist/angular-seed/server/main.js",
         "build:ssr": "ng build --prod && ng run angular-seed:server:production",
@@ -32,6 +31,7 @@
         ],
         "testPathIgnorePatterns": [
             "<rootDir>/node_modules/",
+            "<rootDir>/cypress/",
             "<rootDir>/dist/",
             "<rootDir>/src/test.ts",
             "<rootDir>/projects/nric/src/test.ts"

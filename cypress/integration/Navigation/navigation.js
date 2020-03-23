@@ -6,5 +6,5 @@ Given(`I visit Angular-Seed`, () => {
 
 Then(`Angular-Seed page is displayed`, () => {
     cy.get('#detailsBtn').click();
-    cy.get('p').should('contain', 'pet-details-page works!');
+    cy.get('p').should('contain', 'item-details-page works!');
 });
