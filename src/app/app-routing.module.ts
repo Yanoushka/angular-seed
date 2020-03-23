@@ -3,7 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 // tslint:disable-next-line: max-line-length
 import { PageNotFoundComponent } from './_modules/shared/app-error-pages/pages/page-not-found/page-not-found.component';
-import { ItemsListResolver } from './_modules/angular-seed/e-shop/app-e-shop-services/resolvers/items-list.resolver';
+import { ItemsListResolver } from './resolvers/items-list.resolver';
 
 const routes: Routes = [
     {

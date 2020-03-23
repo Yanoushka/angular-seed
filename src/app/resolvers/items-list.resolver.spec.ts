@@ -1,12 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ItemsListResolver } from './items-list.resolver';
-import {
-    DefaultService,
-    Pet
-} from '../../../../../__modules-swagger-codegen/app-petshop-api';
-import { LoggerService } from '../../../../shared/app-logger/services/logger.service';
-import { of, Observable } from 'rxjs';
+import { DefaultService } from '../__modules-swagger-codegen/app-petshop-api';
+import { LoggerService } from '../_modules/shared/app-logger/services/logger.service';
+import { of } from 'rxjs';
 
 describe('PetsListService', () => {
     class DefaultServiceStub {

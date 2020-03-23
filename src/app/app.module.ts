@@ -22,6 +22,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppInitService } from './services/app-init.service';
 import { AppLoggerModule } from './_modules/shared/app-logger/app-logger.module';
 import { AppECartModule } from './_modules/angular-seed/e-cart/app-e-cart/app-e-cart.module';
+import { ItemsListResolver } from './resolvers/items-list.resolver';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -67,6 +68,7 @@ export function initializeApp(appInitService: AppInitService) {
     providers: [
         { provide: BASE_PATH, useValue: environment.API_BASE_PATH },
         AppInitService,
+        ItemsListResolver,
         {
             provide: APP_INITIALIZER,
             useFactory: initializeApp,

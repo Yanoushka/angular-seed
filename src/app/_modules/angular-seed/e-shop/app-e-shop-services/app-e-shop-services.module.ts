@@ -5,7 +5,7 @@ import {
     Optional
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ItemsListResolver } from './resolvers/items-list.resolver';
+import { ItemsListResolver } from '../../../../resolvers/items-list.resolver';
 
 @NgModule({
     declarations: [],
@@ -22,7 +22,7 @@ export class AppEShopServicesModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: AppEShopServicesModule,
-            providers: [ItemsListResolver]
+            providers: []
         };
     }
 }

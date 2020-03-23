@@ -4,22 +4,22 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import {
-    DefaultService as EShopService,
+    DefaultService as PetsService,
     Pet
-} from '../../../../../__modules-swagger-codegen/app-petshop-api';
-import { LoggerService } from '../../../../shared/app-logger/services/logger.service';
+} from '../__modules-swagger-codegen/app-petshop-api';
+import { LoggerService } from '../_modules/shared/app-logger/services/logger.service';
 
 @Injectable()
 export class ItemsListResolver implements Resolve<Pet[]> {
     list: Pet[];
 
     constructor(
-        private readonly petshopService: EShopService,
+        private readonly petsService: PetsService,
         private readonly loggerService: LoggerService
     ) {}
 
     resolve(): Observable<Pet[]> {
-        return this.petshopService.findPets().pipe(
+        return this.petsService.findPets().pipe(
             catchError(error => {
                 this.loggerService.ngxLogger.error(
                     `ItemsListResolver - resolve() => ${error}`
