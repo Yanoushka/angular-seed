@@ -1,7 +1,12 @@
 node {
     // stage "Checkout"
 
-    // checkout scm
+    checkout scm
+
+      env.NODEJS_HOME = "${tool 'Node 8.9.4'}"
+    // on linux / mac
+    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+    sh 'npm --version'
     
     // stage "Build"
     // env.NODEJS_HOME = "${tool 'Node 12.15.0'}"
@@ -13,7 +18,7 @@ node {
     // }
 
     stage "Test"
-    env.NODEJS_HOME = "${tool 'Node 12.15.0'}"
+    env.NODEJS_HOME = "${tool node7}"
 	// on windows
 	env.PATH="${env.NODEJS_HOME};${env.PATH}"
     echo ${env.PATH}
