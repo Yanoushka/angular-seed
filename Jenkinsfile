@@ -3,9 +3,9 @@ node {
 
     checkout scm
 
-      env.NODEJS_HOME = "${tool 'Node 8.9.4'}"
+      env.NODEJS_HOME = "${tool 'Node 12.15.0''}"
     // on linux / mac
-    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+    env.PATH="${env.NODEJS_HOME}:${env.PATH}"
     sh 'npm --version'
     
     // stage "Build"
