@@ -4,7 +4,7 @@ node {
     checkout scm
     
     stage "Build"
-    env.NODEJS_HOME = "${tool 'Node 10.x'}"
+    env.NODEJS_HOME = "${tool 'Node 12.15.0'}"
 	// on windows
 	env.PATH="${env.NODEJS_HOME};${env.PATH}"
     
