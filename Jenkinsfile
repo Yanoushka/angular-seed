@@ -1,14 +1,23 @@
-node {
-    stage "Checkout"
-
-    checkout scm
-    
-    stage "Build"
-    env.NODEJS_HOME = "${tool 'Node 12.15.0'}"
-	// on windows
-	env.PATH="${env.NODEJS_HOME};${env.PATH}"
-
-    sh 'npm install'
-    sh 'npm run build'
-
+pipeline {
+    agent {
+        docker { image 'node:10.15.3' }
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 }
