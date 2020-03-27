@@ -23,7 +23,7 @@ pipeline {
             when {
                 anyOf {
                     branch 'develop'
-                    branch pattern: "feature/\\d+", comparator: "REGEXP"
+                    branch pattern: "^feature", comparator: "REGEXP"
                 }
             }
             steps {
