@@ -8,14 +8,13 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Unit Test') {
+        stage('Unit Tests') {
             steps {
                 sh 'npm run test'
             }
         }
-        stage('E2E Test') {
+        stage('E2e Tests') {
             steps {
-                sh "npm run cypress:install"
                 sh 'npm run e2e'
             }
         }
