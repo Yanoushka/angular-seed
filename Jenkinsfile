@@ -10,15 +10,14 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                sh 'npm run test:run'
+                sh 'npm run test'
             }
         }
         stage('E2E Test') {
             steps {
                 sh "npm run cypress:install"
                 sh "npm run json-server"
-                sh "npm run start"
-                sh 'npm run e2e'
+                sh 'npm run e2e:run'
             }
         }
         stage('Build') {
