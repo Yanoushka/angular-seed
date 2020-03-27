@@ -3,9 +3,10 @@ pipeline {
         docker { image 'node:12.15.0' }
     }
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                checkout scm
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
         stage('Unit Test') {
@@ -16,12 +17,6 @@ pipeline {
         stage('E2E Test') {
             steps {
                 sh 'npm run e2e:run'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'npm install'
-                sh 'npm run build'
             }
         }
     }
