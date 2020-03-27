@@ -8,15 +8,20 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Unit Test') {
+            steps {
+                sh 'npm run test:run'
+            }
+        }
+        stage('E2E Test') {
+            steps {
+                sh 'npm run e2e:run'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'npm install'
                 sh 'npm run build'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'node --version'
             }
         }
     }
