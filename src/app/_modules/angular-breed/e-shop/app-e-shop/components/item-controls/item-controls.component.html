@@ -1,0 +1,17 @@
+<div class="item-cart-controls-container">
+    <button mat-raised-button color="primary" (click)="onIncrement()">
+        <i class="material-icons">add</i>
+    </button>
+    <input matInput class="item-controls-input" [(value)]="itemQuantity" />
+    <button mat-raised-button color="primary" (click)="onDecrement()">
+        <i class="material-icons">remove</i>
+    </button>
+    <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!itemQuantity"
+        (click)="onAddToCart()"
+    >
+        Add To Cart
+    </button>
+</div>

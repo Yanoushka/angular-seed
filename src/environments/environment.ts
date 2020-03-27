@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_BASE_PATH: 'http://localhost:3000'
+  // API_BASE_PATH: 'http://localhost:3000', // When using json-server
+  // API_BASE_PATH: '' // When using proxy.conf
 };
 
 /*

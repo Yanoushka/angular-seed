@@ -1,51 +1,114 @@
 {
-  "name": "angular-seed",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~9.0.6",
-    "@angular/cdk": "^9.1.2",
-    "@angular/common": "~9.0.6",
-    "@angular/compiler": "~9.0.6",
-    "@angular/core": "~9.0.6",
-    "@angular/forms": "~9.0.6",
-    "@angular/material": "^9.1.2",
-    "@angular/platform-browser": "~9.0.6",
-    "@angular/platform-browser-dynamic": "~9.0.6",
-    "@angular/router": "~9.0.6",
-    "@ngx-translate/core": "^12.1.2",
-    "@ngx-translate/http-loader": "^4.0.0",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.6",
-    "@angular/cli": "~9.0.6",
-    "@angular/compiler-cli": "~9.0.6",
-    "@angular/language-service": "~9.0.6",
-    "@types/node": "^12.11.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "codelyzer": "^5.1.2",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "protractor": "~5.4.3",
-    "ts-node": "~8.3.0",
-    "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
-  }
+    "name": "angular-seed",
+    "version": "0.0.0",
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "start:with-proxy-mock": "ng serve --proxyConfig=proxy/proxy.conf.js",
+        "start:with-json-server-mock": "concurrently -k \"json-server --watch db.json --middlewares json-server-middleware.js\" \"npm run start\"",
+        "json-server": "json-server --watch db.json --middlewares json-server-middleware.js",
+        "build:prod": "ng build --prod",
+        "build": "ng build",
+        "test:watch": "jest --watch",
+        "test": "jest",
+        "cypress:install": "cypress install",
+        "e2e:open": "start-server-and-test start:with-json-server-mock http://localhost:4200 cypress open",
+        "e2e:run": "cypress run --browser chrome --headless --spec **/*.feature",
+        "e2e": "start-server-and-test start:with-json-server-mock http://localhost:4200 e2e:run",
+        "lint": "ng lint",
+        "dev:ssr": "ng run angular-seed:serve-ssr",
+        "serve:ssr": "node dist/angular-seed/server/main.js",
+        "build:ssr": "ng build --prod && ng run angular-seed:server:production",
+        "prerender": "ng run angular-seed:prerender",
+        "launch-ssr-dynamic": "npm run build:ssr && npm run serve:ssr"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    },
+    "jest": {
+        "preset": "jest-preset-angular",
+        "setupFilesAfterEnv": [
+            "<rootDir>/setupJest.ts"
+        ],
+        "testPathIgnorePatterns": [
+            "<rootDir>/node_modules/",
+            "<rootDir>/cypress/",
+            "<rootDir>/dist/",
+            "<rootDir>/src/test.ts",
+            "<rootDir>/projects/nric/src/test.ts"
+        ],
+        "globals": {
+            "ts-jest": {
+                "tsConfig": "<rootDir>/tsconfig.spec.json",
+                "stringifyContentPathRegex": "\\.html$",
+                "astTransformers": [
+                    "jest-preset-angular/build/InlineFilesTransformer",
+                    "jest-preset-angular/build/StripStylesTransformer"
+                ]
+            }
+        }
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "~9.0.6",
+        "@angular/cdk": "^9.1.2",
+        "@angular/common": "~9.0.6",
+        "@angular/compiler": "~9.0.6",
+        "@angular/core": "~9.0.6",
+        "@angular/forms": "~9.0.6",
+        "@angular/material": "^9.1.2",
+        "@angular/platform-browser": "~9.0.6",
+        "@angular/platform-browser-dynamic": "~9.0.6",
+        "@angular/platform-server": "~9.0.6",
+        "@angular/router": "~9.0.6",
+        "@angular/service-worker": "~9.0.6",
+        "@ngrx/effects": "^9.0.0",
+        "@ngrx/store": "^9.0.0",
+        "@ngrx/store-devtools": "^9.0.0",
+        "@nguniversal/express-engine": "^9.0.2",
+        "@ngx-translate/core": "^12.1.2",
+        "@ngx-translate/http-loader": "^4.0.0",
+        "angular-tslint-rules": "^1.20.4",
+        "concurrently": "^5.1.0",
+        "express": "^4.15.2",
+        "ngx-logger": "^4.1.2",
+        "rxjs": "~6.5.4",
+        "rxjs-compat": "^6.5.4",
+        "tslib": "^1.10.0",
+        "zone.js": "~0.10.2"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "~0.900.6",
+        "@angular/cli": "~9.0.6",
+        "@angular/compiler-cli": "~9.0.6",
+        "@angular/language-service": "~9.0.6",
+        "@cypress/xvfb": "^1.2.4",
+        "@nguniversal/builders": "^9.0.2",
+        "@types/express": "^4.17.0",
+        "@types/jest": "^25.1.4",
+        "@types/node": "^12.11.1",
+        "@types/sinon": "^7.5.2",
+        "codelyzer": "^5.1.2",
+        "cypress": "^4.2.0",
+        "cypress-cucumber-preprocessor": "^2.0.1",
+        "husky": "^4.2.3",
+        "jest": "^25.1.0",
+        "jest-preset-angular": "^8.1.2",
+        "jest-sinon": "^1.0.3",
+        "json-server": "^0.16.1",
+        "ngx-translate-testing": "^3.0.0",
+        "prettier": "1.19.1",
+        "pretty-quick": "^2.0.1",
+        "sinon": "^9.0.1",
+        "start-server-and-test": "^1.10.11",
+        "ts-node": "~8.3.0",
+        "tslint": "~5.18.0",
+        "typescript": "~3.7.5",
+        "xvfb": "^0.3.0"
+    }
 }

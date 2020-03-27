@@ -1,0 +1,5 @@
+<div class="items-list-container">
+    <div class="item-container" *ngFor="let item of itemsList$ | async">
+        <app-item [item]="item"></app-item>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+[
+ {"id": 1, "name": "Shiba Inu", "avatar": "assets/images/shiba1.jpg", "category": "Dog Breed", "image": "assets/images/shiba2.jpg", "desc": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."},
+ {"id": 2, "name": "Border Collie", "avatar": "assets/images/border-collie-avatar.jpg", "category": "Dog Breed", "image": "assets/images/border-collie.jfif", "desc": "The border collie is a breed of herding dog native to the border between England and Scotland. This working dog assists farmers in driving cattle around the world, especially sheep. He is known for his intelligence and obedience"}
+]
