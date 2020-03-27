@@ -21,7 +21,10 @@ pipeline {
         }
         stage('Dev Build') {
             when {
-                branch 'develop'
+                anyOf {
+                    branch 'develop'
+                    branch pattern: "feature/\\d+", comparator: "REGEXP"
+                }
             }
             steps {
                 sh 'npm run build'
