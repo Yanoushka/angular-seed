@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:12.15.0' }
+        docker { image 'cypress/browsers:node12.6.0-chrome75' }
     }
     stages {
         stage('Dependencies') {
