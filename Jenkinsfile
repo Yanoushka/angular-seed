@@ -3,10 +3,9 @@ pipeline {
         docker { image 'node:12.15.0' }
     }
     stages {
-        stage('Build') {
+        stage('Dependencies') {
             steps {
                 sh 'npm install'
-                sh 'npm run build'
             }
         }
         stage('Unit Test') {
@@ -17,7 +16,14 @@ pipeline {
         stage('E2E Test') {
             steps {
                 sh "npm run cypress:install"
-                sh 'npm run e2e:run'
+                sh "npm run json-server"
+                sh "npm run start"
+                sh 'npm run e2e'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
             }
         }
     }
