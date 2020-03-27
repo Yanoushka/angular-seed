@@ -19,7 +19,7 @@ pipeline {
                 sh 'npm run e2e'
             }
         }
-        stage('Build') {
+        stage('Dev Build') {
             when {
                 branch 'develop'
             }
@@ -27,7 +27,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('Build') {
+        stage('Prod/Preprod Build') {
             when {
                 anyOf {
                     branch 'master'
@@ -38,7 +38,7 @@ pipeline {
                 sh 'npm run build:prod'
             }
         }
-        stage('Deploy') {
+        stage('Preprod Deploy') {
             when {
                 branch 'release'
             }
@@ -46,7 +46,7 @@ pipeline {
                 sh 'echo \'deploy to pre-production env\''
             }
         }
-        stage('Deploy') {
+        stage('Prod Deploy') {
             when {
                 branch 'master'
             }
