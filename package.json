@@ -5,7 +5,7 @@
         "ng": "ng",
         "start": "ng serve",
         "start:with-proxy-mock": "ng serve --proxyConfig=proxy/proxy.conf.js",
-        "start:with-json-server-mock": "concurrently -k \"json-server --watch db.json --middlewares json-server-middleware.js\" \"ng serve\"",
+        "start:with-json-server-mock": "concurrently -k \"json-server --watch db.json --middlewares json-server-middleware.js\" \"npm run start\"",
         "json-server": "json-server --watch db.json --middlewares json-server-middleware.js",
         "build:prod": "ng build --prod",
         "build": "ng build",
