@@ -11,6 +11,7 @@
         "build": "ng build",
         "test:watch": "jest --watch",
         "test:run": "jest",
+        "cypress:install": "cypress install",
         "e2e:open": "concurrently -k \"npm run start:with-json-server-mock\" \"cypress open\"",
         "e2e:run": "concurrently -k \"npm run start:with-json-server-mock\" \"cypress run --browser chrome --headless --spec **/*.feature\"",
         "lint": "ng lint",
