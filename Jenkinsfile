@@ -19,11 +19,12 @@ pipeline {
                 sh 'npm run e2e'
             }
         }
+        
         stage('Dev Build') {
             when {
                 anyOf {
-                    branch 'develop'
-                    branch pattern: "^feature", comparator: "REGEXP"
+                    branch 'develop';
+                    branch 'feature/*'
                 }
             }
             steps {
@@ -33,8 +34,8 @@ pipeline {
         stage('Prod/Preprod Build') {
             when {
                 anyOf {
-                    branch 'master'
-                    branch 'release'
+                    branch 'master';
+                    branch 'release/*'
                 }
             }
             steps {
@@ -43,7 +44,7 @@ pipeline {
         }
         stage('Preprod Deploy') {
             when {
-                branch 'release'
+                branch 'release/*'
             }
             steps {
                 sh 'echo \'deploy to pre-production env\''
