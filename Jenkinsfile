@@ -16,7 +16,6 @@ pipeline {
         stage('E2E Test') {
             steps {
                 sh "npm run cypress:install"
-                sh "npm run json-server"
                 sh 'npm run e2e:run'
             }
         }
