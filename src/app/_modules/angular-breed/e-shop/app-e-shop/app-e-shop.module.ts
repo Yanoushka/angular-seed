@@ -11,6 +11,7 @@ import { AppPipeModule } from 'src/app/_modules/shared/app-pipe/app-pipe.module'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ItemModalComponent } from './components/item-modal/item-modal.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line: only-arrow-functions
@@ -23,7 +24,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         EShopPageComponent,
         ItemComponent,
         ItemDetailsPageComponent,
-        ItemControlsComponent
+        ItemControlsComponent,
+        ItemModalComponent
     ],
     imports: [
         CommonModule,

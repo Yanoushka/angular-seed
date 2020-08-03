@@ -5,6 +5,8 @@ import { ProductBuilder } from 'src/app/_modules/angular-breed/e-cart/app-e-cart
 import { Product } from 'src/app/_modules/angular-breed/e-cart/app-e-cart/models/product.model';
 import { addProductToCart } from 'src/app/_modules/angular-breed/ngrx-store/app-ngrx-store/app-e-cart-ngrx-store/actions/action';
 import { Item } from '../../models/item.model';
+import { MatDialog } from '@angular/material/dialog';
+import { ItemModalComponent } from '../item-modal/item-modal.component';
 
 @Component({
     selector: 'app-item-controls',
@@ -16,7 +18,10 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
 
     itemQuantity = 0;
 
-    constructor(private readonly store: Store<{ cart: Product<T>[] }>) {}
+    constructor(
+        private readonly store: Store<{ cart: Product<T>[] }>,
+        public dialog: MatDialog
+    ) {}
 
     ngOnInit(): void {}
 
@@ -43,5 +48,17 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
                 product
             })
         );
+
+        this.openItemDialog(this.item);
+    }
+
+    openItemDialog(item: Item) {
+        const dialogRef = this.dialog.open(ItemModalComponent, {
+            data: {
+                item: item
+            }
+        });
+
+        dialogRef.afterClosed();
     }
 }

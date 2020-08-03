@@ -1,0 +1,15 @@
+table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-image {
+        width: 80px;
+        height: 80px;
+    }
+    .desc {
+        width: 400px;
+    }
+}
+.confirm-message {
+    margin-top: 35px;
+}
