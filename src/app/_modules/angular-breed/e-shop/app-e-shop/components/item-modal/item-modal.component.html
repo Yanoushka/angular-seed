@@ -33,17 +33,17 @@
     </table>
 </div>
 
-<div fxLayout="column" class="confirm-message">
-    <h3>
+<div fxLayout="column" class="confirm-container">
+    <div class="confirm-message">
         <div class="material-icons">
             done
         </div>
-        Cet article a été ajouté au panier !
-    </h3>
+        <p>Cet article a été ajouté au panier !</p>
+    </div>
 
     <button mat-flat-button mat-dialog-close>Continuer mes achats</button>
 
-    <button mat-button color="primary" (click)="onCartClick()">
+    <button mat-button color="primary" (click)="onDialogCartClick()">
         Voir mon panier
     </button>
 </div>

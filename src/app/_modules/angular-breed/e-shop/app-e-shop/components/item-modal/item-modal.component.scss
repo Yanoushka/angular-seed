@@ -10,6 +10,17 @@ table {
         width: 400px;
     }
 }
-.confirm-message {
+.confirm-container {
     margin-top: 35px;
+
+    .confirm-message {
+        display: flex;
+        .material-icons {
+            margin: -3px 5px 0 0;
+        }
+    }
+}
+
+.added-icon {
+    margin-top: 5px;
 }

@@ -21,7 +21,7 @@ export class ItemModalComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    onCartClick(): void {
+    onDialogCartClick(): void {
         this.router.navigate(['/ecart']);
         this.dialog.closeAll();
     }
