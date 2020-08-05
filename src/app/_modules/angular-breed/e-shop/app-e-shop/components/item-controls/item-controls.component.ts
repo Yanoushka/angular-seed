@@ -19,7 +19,7 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
     itemQuantity = 0;
     itemStock = 0;
     itemOutOfStock = false;
-    fullCart: any;
+    cartSubscription: any;
 
     constructor(
         private readonly route: ActivatedRoute,
@@ -35,12 +35,12 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
 
     async subscribeCart() {
         return this.store.select('cart').subscribe(state => {
-            this.fullCart = state;
+            this.cartSubscription = state;
         });
     }
 
     defineItemStock() {
-        const itemToUpdate = this.fullCart.cart.find(
+        const itemToUpdate = this.cartSubscription.cart.find(
             element => element.payload.id === this.item.id
         );
         this.itemStock = itemToUpdate
