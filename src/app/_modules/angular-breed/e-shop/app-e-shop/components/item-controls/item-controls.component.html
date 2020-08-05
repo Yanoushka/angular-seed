@@ -1,5 +1,6 @@
-<p *ngIf="!itemOutOfStock">En stock (*{{ itemStock }})</p>
-<p *ngIf="itemOutOfStock">En rupture de stock</p>
+<p class="in-stock" *ngIf="!itemOutOfStock">En stock</p>
+<p class="out-stock" *ngIf="itemOutOfStock">En rupture de stock</p>
+
 <div class="item-cart-controls-container">
     <button
         mat-raised-button
