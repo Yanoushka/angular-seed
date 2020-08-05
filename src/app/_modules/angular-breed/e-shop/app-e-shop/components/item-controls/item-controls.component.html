@@ -1,15 +1,32 @@
+<p *ngIf="!itemOutOfStock">En stock (*{{ itemStock }})</p>
+<p *ngIf="itemOutOfStock">En rupture de stock</p>
 <div class="item-cart-controls-container">
-    <button mat-raised-button color="primary" (click)="onIncrement()">
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="onIncrement()"
+        [disabled]="itemOutOfStock"
+    >
         <i class="material-icons">add</i>
     </button>
-    <input matInput class="item-controls-input" [(value)]="itemQuantity" />
-    <button mat-raised-button color="primary" (click)="onDecrement()">
+    <input
+        matInput
+        class="item-controls-input"
+        [(value)]="itemQuantity"
+        [disabled]="itemOutOfStock"
+    />
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="onDecrement()"
+        [disabled]="itemOutOfStock"
+    >
         <i class="material-icons">remove</i>
     </button>
     <button
         mat-raised-button
         color="accent"
-        [disabled]="!itemQuantity"
+        [disabled]="!itemQuantity || itemOutOfStock"
         (click)="onAddToCart()"
     >
         Add To Cart

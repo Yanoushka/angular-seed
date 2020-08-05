@@ -5,4 +5,5 @@ export interface Item {
     desc: string;
     image: string;
     name: string;
+    stock: number;
 }
