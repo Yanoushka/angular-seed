@@ -29,7 +29,7 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
 
     ngOnInit(): void {
         this.subscribeCart().then(() => {
-            this.defineItemStock();
+            this.findAndStockItem();
         });
     }
 
@@ -39,7 +39,7 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
         });
     }
 
-    defineItemStock() {
+    findAndStockItem() {
         const itemToUpdate = this.cartSubscription.cart.find(
             element => element.payload.id === this.item.id
         );
