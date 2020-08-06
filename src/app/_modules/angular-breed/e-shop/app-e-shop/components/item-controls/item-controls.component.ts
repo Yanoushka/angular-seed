@@ -87,7 +87,6 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
 
         dialogRef.afterClosed().subscribe(() => {
             this.itemOutOfStock = this.itemStock === 0 ? true : false;
-            this.subscribeCart();
         });
     }
 }
