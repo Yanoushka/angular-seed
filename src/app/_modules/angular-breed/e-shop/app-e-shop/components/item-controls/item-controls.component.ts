@@ -40,13 +40,21 @@ export class ItemControlsComponent<T extends Item> implements OnInit {
     }
 
     findAndStockItem() {
-        const itemToUpdate = this.cartSubscription.cart.find(
-            element => element.payload.id === this.item.id
-        );
+        if (this.cartSubscription.cart) {
+            const itemToUpdate = this.cartSubscription.cart.find(
+                element => element.payload.id === this.item.id
+            );
+            this.setItemStock(itemToUpdate);
+        } else {
+            this.setItemStock(null);
+        }
+        this.itemOutOfStock = this.itemStock === 0 ? true : false;
+    }
+
+    setItemStock(itemToUpdate) {
         this.itemStock = itemToUpdate
             ? this.item.stock - itemToUpdate.quantity
             : this.item.stock;
-        this.itemOutOfStock = this.itemStock === 0 ? true : false;
     }
 
     onIncrement() {
