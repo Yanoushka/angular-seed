@@ -6,6 +6,7 @@ import { of, Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { Store } from '@ngrx/store';
+import { AppMaterialModule } from 'src/app/_modules/shared/app-material/app-material.module';
 
 describe('ECartPageComponent', () => {
     let component: ECartPageComponent<any>;
@@ -35,6 +36,7 @@ describe('ECartPageComponent', () => {
         TestBed.configureTestingModule({
             imports: [
                 // RouterTestingModule,
+                AppMaterialModule,
                 TranslateTestingModule
             ],
             declarations: [ECartPageComponent],
