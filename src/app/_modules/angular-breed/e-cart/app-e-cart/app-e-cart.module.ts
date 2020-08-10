@@ -7,6 +7,7 @@ import { AppMaterialModule } from 'src/app/_modules/shared/app-material/app-mate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CartTableComponent } from './components/cart-table/cart-table.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line: only-arrow-functions
@@ -15,7 +16,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [ECartPageComponent],
+    declarations: [ECartPageComponent, CartTableComponent],
     imports: [
         CommonModule,
         AppECartRoutingModule,
