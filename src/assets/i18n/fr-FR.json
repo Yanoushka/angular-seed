@@ -2,7 +2,9 @@
     "APP": {
         "TITLE": "ANGULAR-BREED",
         "SHOPPINGCART": {
-            "EMPTY": "Your shopping cart is empty"
+            "EMPTY": "Your shopping cart is empty",
+            "PRODUCTS": "Produits",
+            "STOCKS": "Stocks"
         },
         "PET": {
             "BUTTONS": {

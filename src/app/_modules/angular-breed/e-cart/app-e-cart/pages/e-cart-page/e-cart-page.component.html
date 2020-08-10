@@ -4,9 +4,13 @@
         <div class="product-details" fxFlex="80" fxLayoutAlign="center center">
             <table *ngIf="(products$ | async).length">
                 <thead>
-                    <th mat-header-cell>Produits</th>
+                    <th mat-header-cell>
+                        {{ 'APP.SHOPPINGCART.PRODUCTS' | translate }}
+                    </th>
                     <th mat-header-cell></th>
-                    <th mat-header-cell>Stocks</th>
+                    <th mat-header-cell>
+                        {{ 'APP.SHOPPINGCART.STOCKS' | translate }}
+                    </th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let product of products$ | async">
@@ -33,6 +37,7 @@
                             <div class="handle-quantity">
                                 <div>{{ ' * ' + product.quantity }}</div>
                                 <div
+                                    id="deleteBtn"
                                     class="material-icons small-delete-icon"
                                     (click)="onDelete(product)"
                                 >
