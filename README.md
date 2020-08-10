@@ -1,5 +1,16 @@
 # AngularSeed
 
+Launch with mock server:
+
+npm install
+npm run start:with-json-server-mock
+
+TDD :
+npm run test
+
+E2E :
+npm run e2e
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
 ## Development server
